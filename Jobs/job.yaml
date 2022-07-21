@@ -1,0 +1,22 @@
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: job
+spec:
+  activeDeadlineSeconds: 5
+  template:
+    metadata:
+      name: job
+      labels:
+        type: job
+    spec:
+      containers: 
+        - image: alpine:3
+          name: myalpine
+          command:
+            - ping
+            - -c
+            - "57"
+            - google.com
+          
