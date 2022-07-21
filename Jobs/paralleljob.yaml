@@ -2,9 +2,10 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: job
+  name: parallel job
 spec:
-  activeDeadlineSeconds: 5
+  completions: 10
+  parallelism: 5
   template:
     metadata:
       name: job
@@ -17,4 +18,3 @@ spec:
           command:
             - sleep
             - 5s
-          
