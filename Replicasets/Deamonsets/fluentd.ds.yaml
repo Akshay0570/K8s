@@ -1,0 +1,21 @@
+---
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+   name: fluentd
+   labels:
+    name: fluentd
+spec:
+  minReadySeconds: 5
+  selector:
+    matchLabels:
+      name: fluentd
+  template:
+    metadata:
+       name: fluentd
+    spec:
+      containers:
+        - image: fluentd:latest
+          ports:
+            - containerPort: 24224
+            
