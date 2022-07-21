@@ -11,8 +11,7 @@ spec:
   replicas: 5
   selector:
     matchLabels:
-      name: app 
-      value: qtapp
+      app: qtapp
   template:
     metadata:
       name: qtapp
