@@ -1,0 +1,27 @@
+---
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata: 
+  labels:
+    name: nginx
+    version: "5.7"
+  name: mynginx
+spec:
+  minReadySeconds: 5
+  replicas: 5
+  selector:
+    matchLabels:
+      name: nginx
+      version: "5.7"
+  template:
+    metadata:
+      name: mynginx
+      labels:
+        name: nginx
+        version: "5.7"
+    spec:
+      containers:
+        - image: nginx:1.23.0
+          name: mynginx
+          ports:
+            - containerPort:80

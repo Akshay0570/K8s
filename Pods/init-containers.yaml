@@ -1,0 +1,25 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: request-pod
+spec:
+  containers:
+    - name: jenkins
+      image: jenkins/jenkins:latest
+      ports:
+        - containerPort: 8080
+  initContainers:
+    - name: initcontainer
+      image: alpine
+      command:
+        - sleep
+        - 10s
+  initContainers:
+    - name: mysqldb
+      image: mysql:8
+      ports:
+        containerPort: 3306
+      env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: rootroot
