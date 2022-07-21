@@ -15,8 +15,6 @@ spec:
         - image: alpine:3
           name: myalpine
           command:
-            - ping
-            - -c
-            - "57"
-            - google.com
+            - sleep
+            - 35s
           
